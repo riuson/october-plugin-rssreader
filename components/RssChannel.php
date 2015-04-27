@@ -22,7 +22,7 @@ class RssChannel extends ComponentBase
             'channel' => [
                 'title' => 'Channel',
                 'description' => 'Selected channel',
-                'default' => '',
+                'default' => '{{ :slug }}',
                 'type' => 'dropdown'
             ],
             'itemsPerPage' => [
