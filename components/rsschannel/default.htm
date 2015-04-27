@@ -1,0 +1,13 @@
+{% if __SELF__.channel is not null %}
+	<h3>{{ __SELF__.channel.title }}</h3>
+
+	{% if __SELF__.items is not null %}
+		{% for item in __SELF__.items %}
+			<ul>
+				<li>
+					<a href ="{{ item.link }}" target="_blank">{{ item.title }}</a>
+				</li>
+			</ul>
+		{% endfor %}
+	{% endif %}
+{% endif %}

@@ -24,6 +24,13 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerComponents()
+    {
+        return [
+            'Riuson\RssReader\Components\RssChannel' => 'rssChannel'
+        ];
+    }
+
     public function registerSettings()
     {
         return [
