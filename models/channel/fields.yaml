@@ -3,6 +3,14 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
+    title:
+        label: Title
+        span: left
+    url:
+        label: URL
+        span: right
+    description:
+        label: Description
+    language:
+        label: Language
         disabled: true

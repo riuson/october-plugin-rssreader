@@ -23,4 +23,17 @@ class Plugin extends PluginBase
             'icon' => 'icon-rss'
         ];
     }
+
+    public function registerSettings()
+    {
+        return [
+            'rssreader' => [
+                'label' => 'Rss Reader',
+                'url' => \Backend::url('riuson/rssreader/channels'),
+                'description' => 'RSS Channels',
+                'category' => \System\Classes\SettingsManager::CATEGORY_CMS,
+                'icon' => 'icon-rss'
+            ]
+        ];
+    }
 }

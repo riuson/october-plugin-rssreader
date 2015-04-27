@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Channel
+
+# Model Form Field configuration
+form: $/riuson/rssreader/models/channel/fields.yaml
+
+# Model Class name
+modelClass: Riuson\RssReader\Models\Channel
+
+# Default redirect location
+defaultRedirect: riuson/rssreader/channels
+
+# Create page
+create:
+    title: Create Channel
+    redirect: riuson/rssreader/channels/update/:id
+    redirectClose: riuson/rssreader/channels
+
+# Update page
+update:
+    title: Edit Channel
+    redirect: riuson/rssreader/channels
+    redirectClose: riuson/rssreader/channels
+
+# Preview page
+preview:
+    title: Preview Channel
