@@ -36,4 +36,9 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function register()
+    {
+        $this->registerConsoleCommand('rssreader.update.channels', 'Riuson\RssReader\Commands\UpdateChannels');
+    }
 }
