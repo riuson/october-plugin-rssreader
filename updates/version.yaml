@@ -1,1 +1,5 @@
 1.0.1: First version of RssReader
+1.0.2:
+    - Create tables for channels and items
+    - create_channels_table.php
+    - create_items_table.php
