@@ -6,6 +6,12 @@
 			<ul>
 				<li>
 					<a href ="{{ item.link }}" target="_blank">{{ item.title }}</a>
+					{% if __SELF__.showFull %}
+						<p>
+							{{ item.pubDate }}
+							{{ item.description|raw }}
+						</p>
+					{% endif %}
 				</li>
 			</ul>
 		{% endfor %}

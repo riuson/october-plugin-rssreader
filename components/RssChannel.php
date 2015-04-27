@@ -31,6 +31,16 @@ class RssChannel extends ComponentBase
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'rainlab.blog::lang.settings.posts_per_page_validation',
                 'default' => '10'
+            ],
+            'mode' => [
+                'description' => 'Display mode',
+                'title' => 'Mode',
+                'type' => 'dropdown',
+                'default' => 'short',
+                'options' => [
+                    'full' => 'With descriptions',
+                    'short' => 'Title only'
+                ]
             ]
         ];
     }
@@ -48,6 +58,7 @@ class RssChannel extends ComponentBase
         $this->items = null;
 
         $channelID = intval($this->property('channel', '0'));
+        $this->showFull = $this->property('mode', 'short') === 'full';
 
         if ($channelID > 0) {
             $this->channel = ChannelModel::find($channelID);
