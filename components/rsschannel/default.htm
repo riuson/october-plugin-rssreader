@@ -24,7 +24,7 @@
 		{% endfor %}
 	{% endif %}
 
-	{% if __SELF__.items.lastPage > 1 %}
+	{% if __SELF__.items.lastPage > 1 and __SELF__.showPager %}
 		<ul class="pagination">
 			{% if __SELF__.items.currentPage > 1 %}
 				<li><a href="{{ this.page.baseFileName|page ({ slug: __SELF__.channel.slug, page: (__SELF__.items.currentPage-1) }) }}">&larr; Prev</a></li>

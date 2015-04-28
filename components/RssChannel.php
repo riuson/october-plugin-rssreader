@@ -60,6 +60,16 @@ class RssChannel extends ComponentBase
                     'short' => 'Title only'
                 ]
             ],
+            'showPager' => [
+                'description' => 'Show page navigation',
+                'title' => 'Show pager',
+                'type' => 'dropdown',
+                'default' => 'hide',
+                'options' => [
+                    'hide' => 'Hide navigation',
+                    'show' => 'Show navigation'
+                ]
+            ],
             'feedPage' => [
                 'title' => 'rainlab.blog::lang.settings.posts_category',
                 'description' => 'rainlab.blog::lang.settings.posts_category_description',
@@ -95,6 +105,7 @@ class RssChannel extends ComponentBase
 
         $channelSlug = $this->property('channel', '');
         $this->showFull = $this->property('mode', 'short') === 'full';
+        $this->showPager = $this->property('showPager', 'hide') === 'show';
         $this->feedPage = $this->property('feedPage');
 
         if (! empty($channelSlug)) {
