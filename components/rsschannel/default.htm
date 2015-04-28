@@ -1,13 +1,4 @@
 {% if __SELF__.channel is not null %}
-	<h3>
-	{% if __SELF__.feedPage is not null %}
-		<a href="{{ __SELF__.feedPage|page ({ slug: __SELF__.channel.slug }) }}">
-			{{ __SELF__.channel.title }}
-		</a>
-	{% else %}
-		{{ __SELF__.channel.title }}
-	{% endif %}
-	</h3>
 	{% if __SELF__.items is not null %}
 		{% for item in __SELF__.items %}
 			<ul>
@@ -22,6 +13,13 @@
 				</li>
 			</ul>
 		{% endfor %}
+	{% endif %}
+
+	{% if __SELF__.feedPage is not null %}
+		<a href="{{ __SELF__.feedPage|page ({ slug: __SELF__.channel.slug }) }}">
+			Show all
+		</a>
+		<br>
 	{% endif %}
 
 	{% if __SELF__.items.lastPage > 1 and __SELF__.showPager %}

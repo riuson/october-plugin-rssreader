@@ -71,8 +71,8 @@ class RssChannel extends ComponentBase
                 ]
             ],
             'feedPage' => [
-                'title' => 'rainlab.blog::lang.settings.posts_category',
-                'description' => 'rainlab.blog::lang.settings.posts_category_description',
+                'title' => 'Feed page',
+                'description' => 'Page to show all items from feed',
                 'type' => 'dropdown',
                 'default' => 'blog/category',
                 'group' => 'Links'
