@@ -2,6 +2,7 @@
 namespace Riuson\RssReader\Components;
 
 use Cms\Classes\ComponentBase;
+use Cms\Classes\Page;
 use Riuson\RssReader\Models\Channel as ChannelModel;
 use Riuson\RssReader\Models\Item as ItemModel;
 
@@ -41,7 +42,14 @@ class RssChannel extends ComponentBase
                     'full' => 'With descriptions',
                     'short' => 'Title only'
                 ]
-            ]
+            ],
+            'feedPage' => [
+                'title'       => 'rainlab.blog::lang.settings.posts_category',
+                'description' => 'rainlab.blog::lang.settings.posts_category_description',
+                'type'        => 'dropdown',
+                'default'     => 'blog/category',
+                'group'       => 'Links',
+            ],
         ];
     }
 
@@ -52,6 +60,11 @@ class RssChannel extends ComponentBase
         ] + \Riuson\RssReader\Models\Channel::orderBy('name', 'asc')->lists('name', 'slug');
     }
 
+    public function getFeedPageOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+    }
+
     public function onRun()
     {
         $this->channel = null;
@@ -59,6 +72,7 @@ class RssChannel extends ComponentBase
 
         $channelSlug = $this->property('channel', '');
         $this->showFull = $this->property('mode', 'short') === 'full';
+        $this->feedPage = $this->property('feedPage');
 
         if (! empty($channelSlug)) {
             $this->channel = ChannelModel::whereSlug($channelSlug)->first();
