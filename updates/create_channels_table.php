@@ -12,6 +12,8 @@ class CreateChannelsTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('name');
+            $table->string('slug');
             $table->string('url');
             $table->string('title');
             $table->text('description');

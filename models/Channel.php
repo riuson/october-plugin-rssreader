@@ -8,12 +8,32 @@ use Model;
  */
 class Channel extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
 
     /**
      *
      * @var string The database table used by the model.
      */
     public $table = 'riuson_rssreader_channels';
+
+    /*
+     * Validation
+     */
+    public $rules = [
+        'name' => 'required',
+        'slug' => 'required|between:3,64|unique:riuson_rssreader_channels',
+        'url' => 'required'
+    ];
+
+    public function beforeValidate()
+    {
+        // Generate a URL slug for this model
+        if (! $this->exists && ! $this->slug)
+            $this->slug = \Str::slug($this->name);
+
+        if (! $this->slug)
+            $this->slug = \Str::slug($this->name);
+    }
 
     /**
      *

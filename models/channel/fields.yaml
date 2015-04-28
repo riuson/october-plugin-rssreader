@@ -3,12 +3,16 @@
 # ===================================
 
 fields:
-    title:
-        label: Title
+    name:
+        label: Name
         span: left
+    slug:
+        label: Slug
+        span: right
     url:
         label: URL
-        span: right
+    title:
+        label: Title
     description:
         label: Description
     language:

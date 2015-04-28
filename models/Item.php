@@ -15,6 +15,13 @@ class Item extends Model
      */
     public $table = 'riuson_rssreader_items';
 
+    /*
+     * Validation
+     */
+    public $rules = [
+        'guid' => 'unique:riuson_rssreader_channels'
+    ];
+
     /**
      *
      * @var array Guarded fields

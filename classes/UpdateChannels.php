@@ -63,6 +63,8 @@ class UpdateChannels
             //print_r($header);
         }
 
+        $channel->title = $header->byName('title');
+        $channel->description = $header->byName('description');
         $channel->language = $header->byName('language');
         $channel->pubDate = $header->byName('pubDate');
         $channel->lastBuildDate = $header->byName('lastBuildDate');
