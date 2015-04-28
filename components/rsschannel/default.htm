@@ -1,7 +1,7 @@
 {% if __SELF__.channel is not null %}
 	<h3>
 	{% if __SELF__.feedPage is not null %}
-		<a href="{{ __SELF__.feedPage|page ({slug: __SELF__.channel.slug }) }}">
+		<a href="{{ __SELF__.feedPage|page ({ slug: __SELF__.channel.slug }) }}">
 			{{ __SELF__.channel.title }}
 		</a>
 	{% else %}
@@ -22,5 +22,23 @@
 				</li>
 			</ul>
 		{% endfor %}
+	{% endif %}
+
+	{% if __SELF__.items.lastPage > 1 %}
+		<ul class="pagination">
+			{% if __SELF__.items.currentPage > 1 %}
+				<li><a href="{{ this.page.baseFileName|page ({ slug: __SELF__.channel.slug, page: (__SELF__.items.currentPage-1) }) }}">&larr; Prev</a></li>
+			{% endif %}
+
+			{% for itemNumber in 1..__SELF__.items.lastPage %}
+				<li class="{{ __SELF__.items.currentPage == itemNumber ? 'active' : null }}">
+					<a href="{{ this.page.baseFileName|page ({ slug: __SELF__.channel.slug, page: itemNumber }) }}">{{ itemNumber }}</a>
+				</li>
+			{% endfor %}
+
+			{% if __SELF__.items.lastPage > __SELF__.items.currentPage %}
+				<li><a href="{{ this.page.baseFileName|page ({ slug: __SELF__.channel.slug, page: (__SELF__.items.currentPage+1) }) }}">Next &rarr;</a></li>
+			{% endif %}
+		</ul>
 	{% endif %}
 {% endif %}

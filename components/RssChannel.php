@@ -8,6 +8,23 @@ use Riuson\RssReader\Models\Item as ItemModel;
 
 class RssChannel extends ComponentBase
 {
+    /**
+     * A rss channel display
+     * @var object
+     */
+    public $channel;
+
+    /**
+     * A collection of items to display
+     * @var Collection
+     */
+    public $items;
+
+    /**
+     * Parameter to use for the page number
+     * @var string
+     */
+    public $pageParam;
 
     public function componentDetails()
     {
@@ -44,12 +61,18 @@ class RssChannel extends ComponentBase
                 ]
             ],
             'feedPage' => [
-                'title'       => 'rainlab.blog::lang.settings.posts_category',
+                'title' => 'rainlab.blog::lang.settings.posts_category',
                 'description' => 'rainlab.blog::lang.settings.posts_category_description',
-                'type'        => 'dropdown',
-                'default'     => 'blog/category',
-                'group'       => 'Links',
+                'type' => 'dropdown',
+                'default' => 'blog/category',
+                'group' => 'Links'
             ],
+            'pageNumber' => [
+                'title' => 'Page number',
+                'description' => 'Page number',
+                'type' => 'string',
+                'default' => '{{ :page }}'
+            ]
         ];
     }
 
@@ -82,6 +105,18 @@ class RssChannel extends ComponentBase
                 'perPage' => $this->property('itemsPerPage'),
                 'channelSlug' => $channelSlug
             ]);
+        }
+
+        /*
+         * If the page number is not valid, redirect
+         */
+        if ($pageNumberParam = $this->paramName('pageNumber')) {
+            $currentPage = $this->property('pageNumber');
+
+            if ($currentPage > ($lastPage = $this->items->lastPage()) && $currentPage > 1)
+                return Redirect::to($this->currentPageUrl([
+                    $pageNumberParam => $lastPage
+                ]));
         }
     }
 }
