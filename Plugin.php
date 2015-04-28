@@ -48,4 +48,9 @@ class Plugin extends PluginBase
     {
         $this->registerConsoleCommand('rssreader.update.channels', 'Riuson\RssReader\Commands\UpdateChannels');
     }
+
+    public function registerSchedule($schedule)
+    {
+        $schedule->command('rssreader:update/channels')->hourly();
+    }
 }
