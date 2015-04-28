@@ -87,7 +87,7 @@ class Item extends Model
             'page' => 1,
             'perPage' => 30,
             'sort' => 'created_at',
-            'channelID' => null,
+            'channelSlug' => null,
             'search' => ''
         ], $options));
 
@@ -126,8 +126,11 @@ class Item extends Model
         /*
          * Channel
          */
-        if ($channelID !== null) {
-            $query->where('channel_id', '=', $channelID);
+        if ($channelSlug !== null) {
+            $query->where('channel_id', function($query2) use ($channelSlug)
+            {
+                $query2->select('id')->from('riuson_rssreader_channels')->where('slug', '=', $channelSlug);
+            });
         }
 
         return $query->paginate($perPage, $page);

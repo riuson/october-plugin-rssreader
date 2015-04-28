@@ -49,7 +49,7 @@ class RssChannel extends ComponentBase
     {
         return [
             '' => '- none -'
-        ] + \Riuson\RssReader\Models\Channel::orderBy('title', 'asc')->lists('title', 'id');
+        ] + \Riuson\RssReader\Models\Channel::orderBy('name', 'asc')->lists('name', 'slug');
     }
 
     public function onRun()
@@ -57,17 +57,17 @@ class RssChannel extends ComponentBase
         $this->channel = null;
         $this->items = null;
 
-        $channelID = intval($this->property('channel', '0'));
+        $channelSlug = $this->property('channel', '');
         $this->showFull = $this->property('mode', 'short') === 'full';
 
-        if ($channelID > 0) {
-            $this->channel = ChannelModel::find($channelID);
+        if (! empty($channelSlug)) {
+            $this->channel = ChannelModel::whereSlug($channelSlug)->first();
             $this->items = ItemModel::listFrontEnd([
-            'page'       => $this->property('pageNumber'),
-            'sort'       => $this->property('sortOrder'),
-            'perPage'    => $this->property('itemsPerPage'),
-            'channelID' => $channelID
-        ]);
+                'page' => $this->property('pageNumber'),
+                'sort' => $this->property('sortOrder'),
+                'perPage' => $this->property('itemsPerPage'),
+                'channelSlug' => $channelSlug
+            ]);
         }
     }
 }
