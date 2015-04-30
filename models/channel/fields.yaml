@@ -4,17 +4,17 @@
 
 fields:
     name:
-        label: Name
+        label: riuson.rssreader::lang.backend_channel.name
         span: left
     slug:
-        label: Slug
+        label: riuson.rssreader::lang.backend_channel.slug
         span: right
     url:
-        label: URL
+        label: riuson.rssreader::lang.backend_channel.url
     title:
-        label: Title
+        label: riuson.rssreader::lang.backend_channel.title
     description:
-        label: Description
+        label: riuson.rssreader::lang.backend_channel.description
     language:
-        label: Language
+        label: riuson.rssreader::lang.backend_channel.language
         disabled: true

@@ -17,8 +17,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name' => 'RssReader',
-            'description' => 'Get and read RSS from other sites.',
+            'name' => 'riuson.rssreader::lang.plugin.name',
+            'description' => 'riuson.rssreader::lang.plugin.description',
             'author' => 'Riuson',
             'icon' => 'icon-rss'
         ];
@@ -35,9 +35,9 @@ class Plugin extends PluginBase
     {
         return [
             'rssreader' => [
-                'label' => 'Rss Reader',
+                'label' => 'riuson.rssreader::lang.backend.label',
                 'url' => \Backend::url('riuson/rssreader/channels'),
-                'description' => 'RSS Channels',
+                'description' => 'riuson.rssreader::lang.backend.description',
                 'category' => \System\Classes\SettingsManager::CATEGORY_CMS,
                 'icon' => 'icon-rss'
             ]

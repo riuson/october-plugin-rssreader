@@ -9,7 +9,7 @@ list: $/riuson/rssreader/models/channel/columns.yaml
 modelClass: Riuson\RssReader\Models\Channel
 
 # List Title
-title: Manage Channels
+title: riuson.rssreader::lang.backend_channel.manage_channels
 
 # Link URL for each record
 recordUrl: riuson/rssreader/channels/update/:id
