@@ -29,8 +29,8 @@ class RssChannel extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'RssChannel Component',
-            'description' => 'No description provided yet...'
+            'name' => 'riuson.rssreader::lang.rss_channel.name',
+            'description' => 'riuson.rssreader::lang.rss_channel.description'
         ];
     }
 
@@ -38,48 +38,47 @@ class RssChannel extends ComponentBase
     {
         return [
             'channel' => [
-                'title' => 'Channel',
-                'description' => 'Selected channel',
+                'title' => 'riuson.rssreader::lang.rss_channel.channel_title',
+                'description' => 'riuson.rssreader::lang.rss_channel.channel_description',
                 'default' => '{{ :slug }}',
                 'type' => 'dropdown'
             ],
             'itemsPerPage' => [
-                'title' => 'Items per page',
+                'title' => 'riuson.rssreader::lang.rss_channel.itemsperpage_title',
                 'type' => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'rainlab.blog::lang.settings.posts_per_page_validation',
                 'default' => '10'
             ],
             'mode' => [
-                'description' => 'Display mode',
-                'title' => 'Mode',
+                'title' => 'riuson.rssreader::lang.rss_channel.mode_title',
+                'description' => 'riuson.rssreader::lang.rss_channel.mode_description',
                 'type' => 'dropdown',
                 'default' => 'short',
                 'options' => [
-                    'full' => 'With descriptions',
-                    'short' => 'Title only'
+                    'full' => 'riuson.rssreader::lang.rss_channel.mode_option_full',
+                    'short' => 'riuson.rssreader::lang.rss_channel.mode_option_short'
                 ]
             ],
             'showPager' => [
-                'description' => 'Show page navigation',
-                'title' => 'Show pager',
+                'title' => 'riuson.rssreader::lang.rss_channel.showpager_title',
+                'description' => 'riuson.rssreader::lang.rss_channel.showpager_description',
                 'type' => 'dropdown',
                 'default' => 'hide',
                 'options' => [
-                    'hide' => 'Hide navigation',
-                    'show' => 'Show navigation'
+                    'hide' => 'riuson.rssreader::lang.rss_channel.showpager_option_hide',
+                    'show' => 'riuson.rssreader::lang.rss_channel.showpager_option_show'
                 ]
             ],
             'feedPage' => [
-                'title' => 'Feed page',
-                'description' => 'Page to show all items from feed',
+                'title' => 'riuson.rssreader::lang.rss_channel.feedpage_title',
+                'description' => 'riuson.rssreader::lang.rss_channel.feedpage_description',
                 'type' => 'dropdown',
                 'default' => 'blog/category',
                 'group' => 'Links'
             ],
             'pageNumber' => [
-                'title' => 'Page number',
-                'description' => 'Page number',
+                'title' => 'riuson.rssreader::lang.rss_channel.pagenumber_title',
                 'type' => 'string',
                 'default' => '{{ :page }}'
             ]

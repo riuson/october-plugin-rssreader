@@ -17,7 +17,7 @@
 
 	{% if __SELF__.feedPage is not null %}
 		<a href="{{ __SELF__.feedPage|page ({ slug: __SELF__.channel.slug }) }}">
-			Show all
+			{{ 'riuson.rssreader::lang.rss_channel.show_all'|trans }}
 		</a>
 		<br>
 	{% endif %}
