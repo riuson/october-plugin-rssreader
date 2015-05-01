@@ -4,14 +4,14 @@
 
 columns:
     name:
-        label: Name
+        label: riuson.rssreader::lang.backend_channel.name
         searchable: true
     title:
-        label: Title
+        label: riuson.rssreader::lang.backend_channel.title
         searchable: true
     description:
-        label: Description
+        label: riuson.rssreader::lang.backend_channel.description
         searchable: true
     url:
-        label: URL
+        label: riuson.rssreader::lang.backend_channel.url
         searchable: true

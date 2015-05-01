@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: Channel
+name: riuson.rssreader::lang.backend_channel.record_name_channel
 
 # Model Form Field configuration
 form: $/riuson/rssreader/models/channel/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: riuson/rssreader/channels
 
 # Create page
 create:
-    title: Create Channel
+    title: riuson.rssreader::lang.backend_channel.create_channel
     redirect: riuson/rssreader/channels/update/:id
     redirectClose: riuson/rssreader/channels
 
 # Update page
 update:
-    title: Edit Channel
+    title: riuson.rssreader::lang.backend_channel.edit_channel
     redirect: riuson/rssreader/channels
     redirectClose: riuson/rssreader/channels
 
 # Preview page
 preview:
-    title: Preview Channel
+    title: riuson.rssreader::lang.backend_channel.preview_channel
