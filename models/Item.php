@@ -48,8 +48,10 @@ class Item extends Model
         'created_at desc' => 'Created (descending)',
         'updated_at asc' => 'Updated (ascending)',
         'updated_at desc' => 'Updated (descending)',
-        'description asc' => 'Published (ascending)',
-        'description desc' => 'Published (descending)'
+        'description asc' => 'Description (ascending)',
+        'description desc' => 'Description (descending)',
+        'pubDate asc' => 'Published (ascending)',
+        'pubDate desc' => 'Published (descending)',
     );
 
     /**
@@ -77,6 +79,15 @@ class Item extends Model
     public $attachOne = [];
 
     public $attachMany = [];
+
+    public function getDates()
+    {
+        return [
+            'created_at',
+            'updated_at',
+            'pubDate'
+        ];
+    }
 
     public function scopeListFrontEnd($query, $options)
     {
