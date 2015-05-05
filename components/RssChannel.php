@@ -111,7 +111,7 @@ class RssChannel extends ComponentBase
             $this->channel = ChannelModel::whereSlug($channelSlug)->first();
             $this->items = ItemModel::listFrontEnd([
                 'page' => $this->property('pageNumber'),
-                'sort' => 'pubDate asc',
+                'sort' => 'pubDate desc',
                 'perPage' => $this->property('itemsPerPage'),
                 'channelSlug' => $channelSlug
             ]);
