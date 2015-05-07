@@ -6,3 +6,7 @@
 1.0.3:
     - Add field date_format to table channels
     - add_channels_date_format.php
+1.0.4:
+    - Make field nullable
+    - change_channels_table_fields_nullable.php
+    - change_items_table_fields_nullable.php
