@@ -15,6 +15,8 @@ fields:
         label: riuson.rssreader::lang.backend_channel.title
     description:
         label: riuson.rssreader::lang.backend_channel.description
+    date_format:
+        label: riuson.rssreader::lang.backend_channel.date_format
     language:
         label: riuson.rssreader::lang.backend_channel.language
         disabled: true

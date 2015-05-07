@@ -56,8 +56,9 @@ class UpdateChannels
         $domDoc->loadXML($serverResponse);
         $domPath = new \DOMXPath($domDoc);
 
+        $dateFormat = $channel->dateFormat;
         $nodeChannel = $domPath->query('//rss/channel')->item(0);
-        $header = $this->parseValuesFromNode($domPath, $nodeChannel);
+        $header = $this->parseValuesFromNode($domPath, $nodeChannel, $dateFormat);
 
         if ($this->mDebugMode) {
             //print_r($header);
@@ -73,7 +74,7 @@ class UpdateChannels
         $nodesItems = $domPath->query("item", $nodeChannel);
 
         foreach ($nodesItems as $nodeItem) {
-            $itemData = $this->parseValuesFromNode($domPath, $nodeItem);
+            $itemData = $this->parseValuesFromNode($domPath, $nodeItem, $dateFormat);
 
             $item = ItemModel::where('guid', '=', $itemData->byName('guid'))->first();
 
@@ -113,9 +114,9 @@ class UpdateChannels
         return $serverResponse;
     }
 
-    private function parseValuesFromNode($domPath, $node)
+    private function parseValuesFromNode($domPath, $node, $dateFormat)
     {
-        $result = new DataValues($domPath, $node);
+        $result = new DataValues($domPath, $node, $dateFormat);
         return $result;
     }
 }

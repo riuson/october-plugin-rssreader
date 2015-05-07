@@ -3,3 +3,6 @@
     - Create tables for channels and items
     - create_channels_table.php
     - create_items_table.php
+1.0.3:
+    - Add field date_format to table channels
+    - add_channels_date_format.php

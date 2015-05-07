@@ -26,6 +26,7 @@ return [
         'url' => 'URL',
         'slug' => 'Slug',
         'language' => 'Language',
+        'date_format' => 'Date format',
     ],
     'rss_channel' => [
         'name' => 'Rss Channel',

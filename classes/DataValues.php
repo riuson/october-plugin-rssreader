@@ -6,7 +6,7 @@ use Carbon\Carbon;
 class DataValues
 {
 
-    public function __construct(\DOMXPath $domPath, $rootNode)
+    public function __construct(\DOMXPath $domPath, $rootNode, $dateFormat)
     {
         $values = array();
 
@@ -22,9 +22,19 @@ class DataValues
                 $values[$simpleNode->nodeName] = $simpleNode->nodeValue;
                 $matches = array();
 
-                if ($simpleNode->nodeName == 'pubDate' ||
-                    $simpleNode->nodeName == 'lastBuildDate') {
-                    $values[$simpleNode->nodeName] = new Carbon($simpleNode->nodeValue);
+                if ($simpleNode->nodeName == 'pubDate' || $simpleNode->nodeName == 'lastBuildDate') {
+
+                    // replace UT by UTC
+                    $pattern = '/UT$/i';
+                    $replacement = 'UTC';
+                    $subject = 'Sun, 08 Feb 2015 06:51:58 UTC';
+                    $dateString = preg_replace($pattern, $replacement, $simpleNode->nodeValue, - 1);
+
+                    if (empty($dateFormat)) {
+                        $values[$simpleNode->nodeName] = new Carbon($dateString);
+                    } else {
+                        $values[$simpleNode->nodeName] = Carbon::createFromFormat($dateFormat, $dateString);
+                    }
                 }
             }
         }

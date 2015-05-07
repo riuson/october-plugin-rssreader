@@ -26,6 +26,7 @@ return [
         'url' => 'URL',
         'slug' => 'Идентификатор канала',
         'language' => 'Язык',
+        'date_format' => 'Формат даты',
     ],
     'rss_channel' => [
         'name' => 'Rss Channel',
